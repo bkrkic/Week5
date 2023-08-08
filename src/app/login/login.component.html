@@ -1,0 +1,15 @@
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<!-- Bootstrap JS -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+<!-- HTML Login Structure -->
+<div class="wrapper">
+  <form class="form-signin">
+     <h2 class="form-signin-heading">User Login</h2>
+     <input type="email" class="form-control" [(ngModel)]="email" name="email" placeholder="Email Address" />
+     <input type="password" class="form-control" [(ngModel)]="password" name="password" placeholder="Password" />
+     <button (click)="signInEvent()" class="btn btn-lg btn-primary btn-block">Login</button>
+     <!-- (clicK)="itemClicked()" -->
+  </form>
+</div>
