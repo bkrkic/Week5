@@ -22,3 +22,6 @@
 3. Commit the local changes with message ( git commit -m "message goes here" )
 4. Add an alias for origin to your remote repository ( git remote add origin [url to repository] )
 5. Push local report to the remote ( git push f -u origin main/master )
+
+### Change Execution Policies
+1. Use PowerShell in admin mode ( Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine ) and input [A]
