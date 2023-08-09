@@ -14,17 +14,17 @@ import { Router } from '@angular/router';
 })
 
 export class LoginComponent {
+  //Task 4. Login Credentials
+    email: string = "";
+    password: string = "";
+    user_ls = [
+      {username: 'admin', password: 'password'},
+      {username: 'student', password: '123'},
+      {username: 'bego', password: 'krkic'}
+    ]
+
   //Lecture 4.3. Angular Routing
   constructor(private router: Router){};
-  
-  //Task 4. Login Credentials
-  email: string = "";
-  password: string = "";
-  user_ls = [
-    {username: 'admin', password: 'password'},
-    {username: 'student', password: '123'},
-    {username: 'bego', password: 'krkic'}
-  ]
 
 signInEvent(){
 // Event Handler Method - Verifying Login Credentials (From Lecture Slides 4.4)
@@ -46,6 +46,7 @@ signInEvent(){
   // End of SignIn Method
   }
 }
+
 
   // Method 2. Event Handler Method - Verifying Login Credentials (From Lecture Slides 4.4) - signInEvent(username, password)
   // signInEvent = (email: string, password: string) => {
