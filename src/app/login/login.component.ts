@@ -1,7 +1,11 @@
+/* Task 4. Create a login function as part of angular that takes the form input and checks the 
+values against hard coded (3 users) values. If the inputs don't match an error messages 
+should be shown. If the inputs match than the page should get redirected to the account 
+page using the router.navigate() method. */
+
+//Lecture 4.3. Angular Routing - import from '@angular/router'
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-//4.3 Angular Routing - import from '@angular/router'
-
 
 @Component({
   selector: 'app-login',
@@ -10,23 +14,18 @@ import { Router } from '@angular/router';
 })
 
 export class LoginComponent {
-
-  //4.3 Angular Routing
+  //Lecture 4.3. Angular Routing
   constructor(private router: Router){};
-
-  //Task 4. Creating Login Credentials
+  
+  //Task 4. Login Credentials
   email: string = "";
   password: string = "";
-
   user_ls = [
     {username: 'admin', password: 'password'},
     {username: 'student', password: '123'},
     {username: 'bego', password: 'krkic'}
   ]
-
   error: boolean = true;
-
-
   signInEvent(){
   // Event Handler Method - Verifying Login Credentials (From Lecture Slides 4.4)
     let user = {username: this.email, password: this.password};
@@ -48,9 +47,7 @@ export class LoginComponent {
   }
 }
 
-
-
-  // Event Handler Method - Verifying Login Credentials (From Lecture Slides 4.4) - signInEvent(username, password)
+  // Method 2. Event Handler Method - Verifying Login Credentials (From Lecture Slides 4.4) - signInEvent(username, password)
   // signInEvent = (email: string, password: string) => {
   //   let credentials = this.accounts.find(account => account.username == email && account.password == password)
   //     if (credentials){
