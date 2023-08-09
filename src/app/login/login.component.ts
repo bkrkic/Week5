@@ -39,7 +39,6 @@ export class LoginComponent {
         valid = false;
       }
     }
-    // Display an invalid message if true
     if (valid === true){
       alert("Invalid user credentials!");
     }
