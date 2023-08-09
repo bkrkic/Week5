@@ -40,7 +40,7 @@ export class LoginComponent {
       }
     }
     // Display an error message if true
-    if (this.error == true){
+    if (this.error === true){
       alert("Invalid user credentials!");
     }
   // End of SignIn Method
