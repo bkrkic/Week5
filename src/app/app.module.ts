@@ -5,9 +5,9 @@ import { AppComponent } from './app.component';
 
 import { LoginComponent } from './login/login.component';
 import { AccountComponent } from './account/account.component';
-import { FormsModule } from '@angular/forms';
-// for using [(ngModel)] - Two-way data binding to a html form element
 
+// Lecture 4.4. For using [(ngModel)] - Two-way data binding to a html form element
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,7 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule, // needed for [(ngModel)]
+    FormsModule, // Lecture 4.4. This FormsModule is needed for [(ngModel)]
   ],
   providers: [],
   bootstrap: [AppComponent]
