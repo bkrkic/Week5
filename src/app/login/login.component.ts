@@ -26,22 +26,23 @@ export class LoginComponent {
     {username: 'bego', password: 'krkic'}
   ]
 
-  signInEvent(){
-  // Event Handler Method - Verifying Login Credentials (From Lecture Slides 4.4)
-    let user = {username: this.email, password: this.password};
-    let valid = true;
-    // If the identity of a user matches a user in the list
-    for (let identity of this.user_ls){
-      if (JSON.stringify(user) === JSON.stringify(identity)){
-        // Move to account page
-        this.router.navigateByUrl('/account');
-        // Set valid to false
-        valid = false;
-      }
+signInEvent(){
+// Event Handler Method - Verifying Login Credentials (From Lecture Slides 4.4)
+  let user = {username: this.email, password: this.password};
+  let valid = true;
+  // If the identity of a user matches a user in the list
+  for (let identity of this.user_ls){
+    if (JSON.stringify(user) === JSON.stringify(identity)){
+      // Move to account page
+      this.router.navigateByUrl('/account');
+      // Set valid to false
+      valid = false;
     }
-    if (valid === true){
-      alert("Invalid user credentials!");
-    }
+  }
+  
+  if (valid === true){
+    alert("Invalid user credentials!");
+  }
   // End of SignIn Method
   }
 }
