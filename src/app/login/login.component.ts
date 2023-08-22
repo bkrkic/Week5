@@ -1,11 +1,13 @@
-/* Task 4. Create a login function as part of angular that takes the form input and checks the 
-values against hard coded (3 users) values. If the inputs don't match an error messages 
-should be shown. If the inputs match than the page should get redirected to the account 
-page using the router.navigate() method. */
 
-//Lecture 4.3. Angular Routing - import from '@angular/router'
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json'})
+};
+
+const BACKEND_URL = 'http://localhost:3000';
 
 @Component({
   selector: 'app-login',
@@ -13,47 +15,35 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 
-export class LoginComponent {
-  //Task 4. Login Credentials
-    email: string = "";
-    password: string = "";
-    user_ls = [
-      {username: 'admin', password: 'password'},
-      {username: 'student', password: '123'},
-      {username: 'bego', password: 'krkic'}
-    ]
+export class LoginComponent implements OnInit {
 
-  //Lecture 4.3. Angular Routing
-  constructor(private router: Router){};
+  constructor(private router: Router, private httpClient: HttpClient) { }
+  ngOnInit() {}
 
-signInEvent(){
-// Event Handler Method - Verifying Login Credentials (From Lecture Slides 4.4)
-  let user = {username: this.email, password: this.password};
-  let valid = true;
-  // If the identity of a user matches a user in the list
-  for (let identity of this.user_ls){
-    if (JSON.stringify(user) === JSON.stringify(identity)){
-      // Move to account page
-      this.router.navigateByUrl('/account');
-      // Set valid to false
-      valid = false;
-    }
+  email: string = '';
+  password: string = '';
+
+  signInEvent(){
+    let user = {email: this.email, password: this.password};
+
+    this.httpClient.post(BACKEND_URL + '/api/auth', user, httpOptions)
+    .subscribe((data:any)=>{
+      // Check form data posted
+      alert(JSON.stringify(user));
+      // Check data of user in the array
+      alert(JSON.stringify(data));
+      if(data.valid){
+        sessionStorage.setItem('username', data.username);
+        sessionStorage.setItem('birthdate', data.birthdate);
+        // Convert int to string
+        sessionStorage.setItem('age', data.age.toString());
+        sessionStorage.setItem('email', data.email)
+        this.router.navigateByUrl('/profile');
+      }
+      else{
+        alert("Sorry, wrong username or password.");
+      };
+    })
   }
-  
-  if (valid === true){
-    alert("Invalid user credentials!");
-  }
-  // End of SignIn Method
-  }
+
 }
-
-
-  // Method 2. Event Handler Method - Verifying Login Credentials (From Lecture Slides 4.4) - signInEvent(username, password)
-  // signInEvent = (email: string, password: string) => {
-  //   let credentials = this.accounts.find(account => account.username == email && account.password == password)
-  //     if (credentials){
-  //       this.router.navigate(['account'])
-  //     } else {
-  //       alert("Invalid user credentials!")
-  //     }
-  // }
