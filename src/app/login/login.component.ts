@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
 
     this.httpClient.post(BACKEND_URL + '/api/auth', user, httpOptions)
     .subscribe((data:any)=>{
-      // Check form data posted
+      // Check if form data posted
       alert(JSON.stringify(user));
       // Check data of user in the array
       alert(JSON.stringify(data));
@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
         // Convert int to string
         sessionStorage.setItem('age', data.age.toString());
         sessionStorage.setItem('email', data.email)
-        this.router.navigateByUrl('/profile');
+        this.router.navigateByUrl('/account');
       }
       else{
         alert("Sorry, wrong username or password.");

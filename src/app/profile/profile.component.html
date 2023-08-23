@@ -1,1 +1,14 @@
 <p>profile works!</p>
+
+<div class="wrapper">
+  <form class="form-signedin">
+      <h2 class="form-signed-heading">Change User Details</h2>
+      <input type="username" class="form-control" name="{{username}}" [(ngModel)]="username"/>
+      <input type="birthdate" class="form-control" name="{{birthdate}}" [(ngModel)]="birthdate"/>
+      <input type="age" class="form-control" name="{{age}}" [(ngModel)]="age"/>
+
+      <!-- <button (click)="updateDetails()" class="btn btn-lg btn-primary btn-block">Change Details</button> -->
+      <!-- (clicK)="itemClicked()" -->
+
+  </form>
+</div>
