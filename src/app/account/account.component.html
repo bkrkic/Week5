@@ -10,7 +10,7 @@
         <img src="https://i.ytimg.com/vi/3qBXWUpoPHo/maxresdefault.jpg" alt="example" height="50%" width="50%">
 
         <div class="profile">
-          <p> Account Profile </p>
+          <br><h2> Account Profile: </h2>
           <p> Username: {{username}} </p>
           <p> Birthdate: {{birthdate}} </p>
           <p> Age: {{age}} </p>
@@ -21,7 +21,7 @@
           <!-- *ngIf content is only visible to authenticated users -->
         <br>
         <ng-container *ngIf="userLoggedIn()">
-        <li><button type="submit" class="btn btn-primary" (click)="logOut()">LogOut</button></li>
+        <button type="submit" class="btn btn-primary" (click)="logOut()">LogOut</button>
         </ng-container>
 
     </body>

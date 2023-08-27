@@ -6,9 +6,9 @@ const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json'})
 };
 
-import { Userobj } from '../userobj';
+//import { Userobj } from '../userobj';
 
-const BACKEND_URL = 'http://localhost:3000';
+//const BACKEND_URL = 'http://localhost:3000';
 
 
 @Component({
@@ -20,20 +20,12 @@ const BACKEND_URL = 'http://localhost:3000';
 
 export class ProfileComponent implements OnInit{
 
-
-
-  // New profile object
-  user = {
-    usernameNew: sessionStorage.getItem('username'),
-    birthdateNew: sessionStorage.getItem('birthdate'),
-    ageNew: sessionStorage.getItem('age'),
-    emailNew: sessionStorage.getItem('email'),
-    passwordNew: sessionStorage.getItem('password'),
-    valid: false
-  }
-
-  // Profile data
-  valid = sessionStorage.getItem('valid');
+  username = sessionStorage.getItem('username') || "";
+  birthdate = sessionStorage.getItem('birthdate');
+  age = Number(sessionStorage.getItem('age'));
+  email = sessionStorage.getItem('email');
+  password = sessionStorage.getItem('password');
+  valid = Boolean(sessionStorage.getItem('valid'))
 
   constructor(private router: Router, private httpClient: HttpClient){}
 
@@ -44,20 +36,18 @@ export class ProfileComponent implements OnInit{
     }
   }
 
-  updateDetails() {
-    this.httpClient.post(BACKEND_URL + '/edit', this.user, httpOptions).subscribe((data:any) => {
-      if (data.ok) {
-        sessionStorage.setItem('username', this.user.usernameNew!);
-        sessionStorage.setItem('birthdate', this.user.birthdateNew!);
-        sessionStorage.setItem('age', this.user.ageNew!);
-        sessionStorage.setItem('email', this.user.emailNew!);
-        sessionStorage.setItem('password', this.user.passwordNew!);
-        this.router.navigateByUrl('/account');
+  // this.httpClient.post(BACKEND_URL + '/edit', this.user, httpOptions).subscribe((data:any) => {
+  //   if (data.ok) {
 
-      } else {
-        alert("Failed to change user details.");
-      }
-    });
+  saveDetails() {
+    //without null!
+    sessionStorage.setItem('username', this.username);
+    sessionStorage.setItem('birthdate', this.birthdate!);
+    sessionStorage.setItem('age', this.age.toString()!);
+    sessionStorage.setItem('email', this.email!);
+    sessionStorage.setItem('password', this.password!);
+    this.router.navigateByUrl('/account');
   }
 
 }
+

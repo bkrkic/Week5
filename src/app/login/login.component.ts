@@ -21,7 +21,13 @@ const BACKEND_URL = 'http://localhost:3000';
 export class LoginComponent implements OnInit {
 
   constructor(private router: Router, private httpClient: HttpClient) { }
-  ngOnInit() {}
+
+  valid = sessionStorage.getItem('valid');
+  ngOnInit(){
+    if(this.valid == 'true'){
+      this.router.navigateByUrl('/account');
+    }
+  }
 
   email = '';
   password = '';
