@@ -37,10 +37,10 @@ export class ProfileComponent implements OnInit{
   }
 
   // this.httpClient.post(BACKEND_URL + '/edit', this.user, httpOptions).subscribe((data:any) => {
-  //   if (data.ok) {
+  //   if (update.ok) {
 
   saveDetails() {
-    //without null!
+    //without username || ''; and no null!
     sessionStorage.setItem('username', this.username);
     sessionStorage.setItem('birthdate', this.birthdate!);
     sessionStorage.setItem('age', this.age.toString()!);
