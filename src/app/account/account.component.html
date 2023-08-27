@@ -14,7 +14,15 @@
           <p> Username: {{username}} </p>
           <p> Birthdate: {{birthdate}} </p>
           <p> Age: {{age}} </p>
+          <p> Email: {{email}} </p>
+          <p> Valid: {{valid}} </p>
         </div>
+
+          <!-- *ngIf content is only visible to authenticated users -->
+        <br>
+        <ng-container *ngIf="userLoggedIn()">
+        <li><button type="submit" class="btn btn-primary" (click)="logOut()">LogOut</button></li>
+        </ng-container>
 
     </body>
 </html>

@@ -3,12 +3,13 @@
 <div class="wrapper">
   <form class="form-signedin">
       <h2 class="form-signed-heading">Change User Details</h2>
-      <input type="username" class="form-control" name="{{username}}" [(ngModel)]="username"/>
-      <input type="birthdate" class="form-control" name="{{birthdate}}" [(ngModel)]="birthdate"/>
-      <input type="age" class="form-control" name="{{age}}" [(ngModel)]="age"/>
-
-      <!-- <button (click)="updateDetails()" class="btn btn-lg btn-primary btn-block">Change Details</button> -->
-      <!-- (clicK)="itemClicked()" -->
-
+      <input type="username" class="form-control" name="{{user.usernameNew}}" [(ngModel)]="user.usernameNew" placeholder="name"/>
+      <input type="birthdate" class="form-control" name="{{user.birthdateNew}}" [(ngModel)]="user.birthdateNew" placeholder="birthdate (e.g., 02/10/1991)"/>
+      <input type="age" class="form-control" name="{{user.ageNew}}" [(ngModel)]="user.ageNew" placeholder="age"/>
+      <input type="email" class="form-control" name="{{user.emailNew}}" [(ngModel)]="user.emailNew" placeholder="email"/>
+      <input type="password" class="form-control" name="{{user.passwordNew}}" [(ngModel)]="user.passwordNew" placeholder="password"/>
+      <button (click)="updateDetails()" class="btn btn-lg btn-primary btn-block">Change Details</button>
+      <!-- (click)="itemClicked()" -->
   </form>
+
 </div>

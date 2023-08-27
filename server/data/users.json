@@ -1,0 +1,1 @@
+{"users":[{"username":"admin","birthdate":"02/10/1991","age":10000,"email":"admin@gmail.com","password":"password","valid":false},{"username":"student","birthdate":"02/10/1991","age":32,"email":"student@gmail.com","password":"student123","valid":false},{"username":"bego","birthdate":"02/10/1991","age":32,"email":"begokrkic@gmail.com","password":"krkic","valid":false}]}

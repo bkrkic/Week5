@@ -29,5 +29,6 @@ let server = http.listen(3000, function () {
 });
 
 
+require('./router/login')(app,path);
+require('./router/edit')(app,path);
 
-require('./router/api-login')(app,path);
